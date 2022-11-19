@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Conky Now Cloking
+GenericName=background monitor
+Comment=Keep a background eye on your time & now playing musics
+Exec=sh /home/pierrotlc/Desktop/now-clocking/start.sh
+Terminal=false
+Type=Application
+Icon=conky
+Categories=System;
+StartupNotify=false
+Name[en_US]=conky-now-clocking
