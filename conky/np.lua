@@ -1,7 +1,7 @@
 conky.config = {
     -- Run settings
     total_run_times = 0,
-    update_interval = 1,
+    update_interval = 0.5,
 
     -- Positioning
     alignment = 'bottom_left',
@@ -10,6 +10,7 @@ conky.config = {
     minimum_width = 1200,
     maximum_width = 1200,
     minimum_height = 200,
+    xinerama_head = 1,
 
     -- Draw settings
     double_buffer = true,

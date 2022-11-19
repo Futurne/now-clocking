@@ -10,6 +10,7 @@ conky.config = {
     minimum_width = 125,
     maximum_width = 125,
     minimum_height = 125,
+    xinerama_head = 1,
 
     -- Draw settings
     double_buffer = true,
