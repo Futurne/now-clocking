@@ -34,7 +34,6 @@ conky.config = {
 }
 
 conky.text = ""
-add_conky('${if_match "nil" != "${exec ./conky/playerctl.lua client}"}')
-add_conky("${exec ./conky/playerctl.lua artwork}")
+add_conky('${if_match "Playing" == "${exec cat ./data/status}"}')
 add_conky("${image ./data/artwork.png -p 0,0 -s 125x125 -n}")
 add_conky("${endif}")
