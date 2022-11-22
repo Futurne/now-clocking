@@ -1,3 +1,0 @@
--- https://stackoverflow.com/questions/45369475/how-to-implement-a-basic-lua-function-in-conky
--- https://conky.cc/config_settings#lua_load
--- playerctl -F metadata mpris:artUrl
