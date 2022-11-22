@@ -2,28 +2,13 @@ local function add_conky(text)
 	conky.text = conky.text .. text
 end
 
-local function fetch_image(application_name)
-	local text = ""
-		.. "${exec ./scripts/fetch-art "
-		.. application_name
-		.. " }"
-		.. "${image ./data/"
-		.. application_name
-		.. ".png -p 0,0 -s 125x125 -n}"
-	add_conky(text)
-end
-
-local function add_player(application_name)
-	local text = "" .. '${if_match "Playing" == "${exec playerctl -p ' .. application_name .. ' status}"}'
-	add_conky(text)
-	fetch_image(application_name)
-	add_conky("${endif}")
-end
-
 conky.config = {
 	-- Run settings
 	total_run_times = 0,
 	update_interval = 1,
+	text_buffer_size = 512,
+	max_text_width = 0,
+	imlib_cache_size = 0,
 
 	-- Positioning
 	alignment = "bottom_left",
@@ -49,7 +34,7 @@ conky.config = {
 }
 
 conky.text = ""
-local players = { "spotify", "spotifyd", "Lollypop", "cmus", "vlc" }
-for _, application_name in ipairs(players) do
-	add_player(application_name)
-end
+add_conky('${if_match "nil" != "${exec ./conky/playerctl.lua client}"}')
+add_conky("${exec ./conky/playerctl.lua artwork}")
+add_conky("${image ./data/artwork.png -p 0,0 -s 125x125 -n}")
+add_conky("${endif}")
