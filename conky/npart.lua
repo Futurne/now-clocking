@@ -1,7 +1,3 @@
-local function add_conky(text)
-	conky.text = conky.text .. text
-end
-
 conky.config = {
 	-- Run settings
 	total_run_times = 0,
@@ -33,7 +29,8 @@ conky.config = {
 	own_window_type = "dock",
 }
 
-conky.text = ""
-add_conky('${if_match "Playing" == "${exec cat ./data/status}"}')
-add_conky("${image ./data/artwork.png -p 0,0 -s 125x125 -n}")
-add_conky("${endif}")
+conky.text = [[
+${if_match "Playing" == "${exec cat ./data/status}"}
+${image ./data/artwork.png -p 0,0 -s 125x125 -n}
+${endif}
+]]
