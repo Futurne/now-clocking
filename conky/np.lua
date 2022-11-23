@@ -1,6 +1,3 @@
-local PIXEL_ABSOLUTE_SIZES = { 15, 18, 23, 35, 44, 46, 65, 80 }
-local STANDARD_RESOLUTION = { 1920, 1080 }
-
 conky.config = {
 	-- Run settings
 	total_run_times = 0,
