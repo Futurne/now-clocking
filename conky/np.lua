@@ -33,14 +33,14 @@ conky.config = {
 
 conky.text = [[
 ${if_match "Playing" == "${exec cat ./data/status}"}
-${color #fff}${font Gotham Book:pixelsize=18}NOW PLAYING:
-${color #fff}${font Gotham Book:pixelsize=15}
-${color #fff}${font Gotham:style=bold:pixelsize=44}           ${font Gotham:style=bold:pixelsize=46}${exec cat ./data/artist}
-${color #fff}${font Gotham Book:pixelsize=44}           ${font Gotham Book:pixelsize=23}${exec cat ./data/title}
+${color #fff}${font Gotham Book:size=13}NOW PLAYING:
+${color #fff}${font Gotham Book:size=11}
+${color #fff}${font Gotham:style=bold:size=32}           ${font Gotham:style=bold:size=34}${exec cat ./data/artist}
+${color #fff}${font Gotham Book:size=32}           ${font Gotham Book:size=17}${exec cat ./data/title}
 ${endif}
 \
 ${if_match "Playing" != "${exec cat ./data/status}"}
-${color #fff}${font Gotham Book:pixelsize=80}${time %H:%M:%S}
-${color #fff}${font Montserrat Light:pixelsize=35}${exec ./scripts/date.sh}
+${color #fff}${font Gotham Book:size=58}${time %H:%M:%S}
+${color #fff}${font Montserrat Light:size=26}${exec ./scripts/date.sh}
 ${endif}
 ]]
