@@ -4,6 +4,7 @@ set -ex
 
 cd "$(dirname "$0")"
 mkdir -p data
+touch ./data/title ./data/artist ./data/status
 
 launch_conky() {
     conky -c ./conky/np.lua -d # &>/dev/null
