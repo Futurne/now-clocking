@@ -5,16 +5,26 @@ set -ex
 cd "$(dirname "$0")"
 mkdir -p data
 
-launch_conky() {
-    conky -c ./conky/np.lua -d # &>/dev/null
-    conky -c ./conky/npart.lua -d # &> /dev/null
+# Fetch playing info from playerctl.
+playerctl -F metadata mpris:artUrl | ./scripts/curl_stdin.sh ./data/artwork.png &
+ARTWORK_PID=$!
+playerctl -F status  | ./scripts/write_to_file.sh ./data/status &
+STATUS_PID=$!
+playerctl -F metadata artist  | ./scripts/write_to_file.sh ./data/artist &
+ARTIST_PID=$!
+playerctl -F metadata title  | ./scripts/write_to_file.sh ./data/title &
+TITLE_PID=$!
+
+kill_playerctl_processes() {
+    kill $ARTWORK_PID
+    kill $STATUS_PID
+    kill $ARTIST_PID
+    kill $TITLE_PID
 }
 
-monitor_playerctl() {
-    playerctl -F metadata mpris:artUrl | ./scripts/curl_stdin.sh ./data/artwork.png &
-    playerctl -F status  | ./scripts/write_to_file.sh ./data/status &
-    playerctl -F metadata artist  | ./scripts/write_to_file.sh ./data/artist &
-    playerctl -F metadata title  | ./scripts/write_to_file.sh ./data/title
-}
+# Make sure we kill the playerctl processes when we exit.
+trap kill_playerctl_processe SIGINT
+trap kill_playerctl_processes SIGTERM
 
-(trap 'kill 0' SIGINT; launch_conky & monitor_playerctl)
+# Launch conky.
+conky -c ./conky/np.lua

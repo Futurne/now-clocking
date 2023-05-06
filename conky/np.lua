@@ -34,9 +34,9 @@ conky.config = {
 conky.text = [[
 ${if_match "Playing" == "${exec cat ./data/status}"}
 ${color #fff}${font Gotham Book:size=13}NOW PLAYING:
-${color #fff}${font Gotham Book:size=11}
-${color #fff}${font Gotham:style=bold:size=32}           ${font Gotham:style=bold:size=34}${exec cat ./data/artist}
-${color #fff}${font Gotham Book:size=32}           ${font Gotham Book:size=17}${exec cat ./data/title}
+${image ./data/artwork.png -p 0,55 -s 125x125 -n}
+${color #fff}${font Gotham Book:size=32}             ${font Gotham:style=bold:size=34}${exec cat ./data/artist}
+${color #fff}${font Gotham Book:size=32}             ${font Gotham Book:size=17}${exec cat ./data/title}
 ${endif}
 \
 ${if_match "Playing" != "${exec cat ./data/status}"}
