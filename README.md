@@ -1,8 +1,5 @@
 # Now Clocking
 
-A fork from the [original](https://github.com/rayzr522/now-clocking) conky which
-I find easier to maintain.
-
 *Made with :heart: by [@gamehelp16](https://github.com/gamehelp16),
 [@Rayzr522](https://github.com/Rayzr522) and [@pierrot-lc](https://github.com/pierrot-lc).*
 
@@ -14,16 +11,21 @@ Now Playing when music is played or a clock when no music is playing.
 <img alt="Screenshot of spotify" src="res/now-clocking-spotify.jpg" width="416px" />
 </div>
 
-### Table of contents
+This fork comes with the following modifications from the original repo:
+
+- Only relies on `playerctl` to find information about the currently played song.
+- Text is specified in relative size instead of absolute pixel size
+(adapt to screen resolution).
+- The conky configuration is easy to modify for your own needs.
+
+## Table of contents
 
 - [Requirements](#requirements)
   - [Packages](#packages)
   - [Fonts](#fonts)
   - [Supported Players](#supported-players)
 - [Installation](#installation)
-- [FAQ](#faq)
 - [Credits](#credits)
-- [Join Me](#join-me)
 
 ## Requirements
 
@@ -43,15 +45,15 @@ Now Playing when music is played or a clock when no music is playing.
 - [Gotham Bold](https://www.fontmirror.com/gotham-bold)
 - [Gotham Book](https://www.fontmirror.com/gotham-book)
 
-> On most Linux distros, you can just run the `./scripts/download-fonts.sh` script to download the fonts.
+On most Linux distros, you can just run the `./scripts/download-fonts.sh`
+script to download the fonts.
 
-### Supported Players
+## Supported Players
 
-- [Spotify](https://www.spotify.com/)
-- [spotifyd](https://github.com/Spotifyd/spotifyd)
-- [VLC](https://www.videolan.org/)
-- [Lollypop](https://wiki.gnome.org/Apps/Lollypop)
-- [cmus](https://cmus.github.io/)
+This fork actually support all players that talk to `playerctl`.
+This has some downsides, as for example it will detect when
+a standard Youtube video is played, which in this case would
+be better if it was not detected.
 
 ## Installation
 
@@ -59,15 +61,15 @@ Now Playing when music is played or a clock when no music is playing.
 
 ```bash
 # Ubuntu
-$ sudo apt install conky ffmpeg playerctl
+$ sudo apt install conky playerctl
 # Arch
-$ sudo pacman -S conky ffmpeg playerctl
+$ sudo pacman -S conky playerctl
 ```
 
 2. Clone the repo:
 
 ```bash
-git clone git@github.com:Rayzr522/now-clocking.git
+git clone git@github.com:pierrot-lc/now-clocking.git
 ```
 
 3. Ensure that all required [fonts](#fonts) are installed:
@@ -79,21 +81,13 @@ git clone git@github.com:Rayzr522/now-clocking.git
 4. Run the `start.sh` script to start the widget (forks to background):
 
 ```bash
-path/to/now-clocking/start.sh
+path/to/now-clocking/now-clocking.sh
 ```
-
-## FAQ
-
-> **Why are there 2 Conky widgets?**
-
-Originally, this had to do with weird transparency issues in Conky that required a non-transparent album artwork. However, that has long since been patched in Conky. The widgets have remained separated, however, so as to make aligning everything easier, especially since one widget functions both as the track info *and* a clock.
 
 ## Credits
 
-Huge props to the original creator, [@gamehelp16](https://github.com/gamehelp16). I used this script back in 2017/2018 and rediscovered it in 2020, and decided to rework it to be more portable, efficient, and updated to modern Conky config standards.
-
-Also huge props to Hoefler & Frere-Jones for the wonderful Gotham fonts, and Julieta Ulanovsky (and crew) for the slick Montserrat font.
-
-## Join Me
-
-[![Discord Badge](https://github.com/Rayzr522/ProjectResources/raw/master/RayzrDev/badge-small.png)](https://rayzr.dev/join)
+Huge props to the original creator, [@gamehelp16](https://github.com/gamehelp16).
+Same huge props to the second fork [@Rayzr522](https://github.com/Rayzr522),
+which is the implementation I used originally.
+Finally huge props to Hoefler & Frere-Jones for the wonderful Gotham fonts,
+and Julieta Ulanovsky (and crew) for the slick Montserrat font.
