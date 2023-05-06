@@ -4,6 +4,7 @@ set -ex
 
 cd "$(dirname "$0")"
 mkdir -p data
+touch ./data/title ./data/artist ./data/status
 
 # Fetch playing info from playerctl.
 playerctl -F metadata mpris:artUrl | ./scripts/curl_stdin.sh ./data/artwork.png &
