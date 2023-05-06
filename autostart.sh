@@ -6,7 +6,7 @@ mkdir -p "$HOME/.config/autostart"
 cat "./now-clocking.desktop" > "$HOME/.config/autostart/now-clocking.desktop"
 
 # Write execution path
-exec_path="$(pwd)/start.sh"
+exec_path="$(pwd)/now-clocking.sh"
 echo "Exec=sh $exec_path" >> "$HOME/.config/autostart/now-clocking.desktop"
 
 echo "Desktop file created at $HOME/.config/autostart/now-clocking.desktop"
