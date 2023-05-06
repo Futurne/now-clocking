@@ -32,21 +32,13 @@ This fork comes with the following modifications from the original repo:
 ### Packages
 
 - [conky](https://github.com/brndnmtthws/conky/)
-- [ffmpeg](https://www.ffmpeg.org/)
 - [playerctl](https://github.com/altdesktop/playerctl)
-
-> Ubuntu: `sudo apt install conky ffmpeg playerctl`
-
-> Arch: `sudo pacman -S conky ffmpeg playerctl`
 
 ### Fonts
 
 - [Montserrat Light](https://fonts.google.com/specimen/Montserrat?selection.family=Montserrat:300)
 - [Gotham Bold](https://www.fontmirror.com/gotham-bold)
 - [Gotham Book](https://www.fontmirror.com/gotham-book)
-
-On most Linux distros, you can just run the `./scripts/download-fonts.sh`
-script to download the fonts.
 
 ## Supported Players
 
@@ -60,10 +52,8 @@ be better if it was not detected.
 1. Install all required [packages](#packages):
 
 ```bash
-# Ubuntu
+# Ubuntu/Debian based
 $ sudo apt install conky playerctl
-# Arch
-$ sudo pacman -S conky playerctl
 ```
 
 2. Clone the repo:
@@ -81,13 +71,21 @@ git clone git@github.com:pierrot-lc/now-clocking.git
 4. Run the `start.sh` script to start the widget (forks to background):
 
 ```bash
-path/to/now-clocking/now-clocking.sh
+./now-clocking.sh
+```
+
+5. (Optional) Run the `autostart.sh` script to make it automatically run on startup:
+
+```bash
+./autostart.sh
 ```
 
 ## Credits
 
 Huge props to the original creator, [@gamehelp16](https://github.com/gamehelp16).
+
 Same huge props to the second fork [@Rayzr522](https://github.com/Rayzr522),
 which is the implementation I used originally.
-Finally huge props to Hoefler & Frere-Jones for the wonderful Gotham fonts,
+
+Finally, huge props to Hoefler & Frere-Jones for the wonderful Gotham fonts,
 and Julieta Ulanovsky (and crew) for the slick Montserrat font.
