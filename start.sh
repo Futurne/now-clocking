@@ -24,7 +24,7 @@ kill_playerctl_processes() {
 }
 
 # Make sure we kill the playerctl processes when we exit.
-trap kill_playerctl_processe SIGINT
+trap kill_playerctl_processes SIGINT
 trap kill_playerctl_processes SIGTERM
 
 # Launch conky.
