@@ -1,7 +1,13 @@
-<h1 align="center">Now Clocking</h1>
-<p align="center"><i>Made with :heart: by <a href="https://github.com/gamehelp16">@gamehelp16</a> and <a href="https://github.com/Rayzr522">@Rayzr522</a></i></p>
+# Now Clocking
 
-> **Now Clocking** is a Conky widget which shows a Monstercat style Now Playing when music is played via Spotify or cmus, or a clock when no music is playing.
+A fork from the [original](https://github.com/rayzr522/now-clocking) conky which
+I find easier to maintain.
+
+*Made with :heart: by [@gamehelp16](https://github.com/gamehelp16),
+[@Rayzr522](https://github.com/Rayzr522) and [@pierrot-lc](https://github.com/pierrot-lc).*
+
+**Now Clocking** is a Conky widget which shows a Monstercat style
+Now Playing when music is played or a clock when no music is playing.
 
 <div align="center" style="display:inline">
 <img alt="Screenshot of clock" src="res/now-clocking-clock.jpg" width="416px" />
@@ -50,23 +56,30 @@
 ## Installation
 
 1. Install all required [packages](#packages):
+
 ```bash
 # Ubuntu
 $ sudo apt install conky ffmpeg playerctl
 # Arch
 $ sudo pacman -S conky ffmpeg playerctl
 ```
+
 2. Clone the repo:
+
 ```bash
-$ git clone git@github.com:Rayzr522/now-clocking.git
+git clone git@github.com:Rayzr522/now-clocking.git
 ```
+
 3. Ensure that all required [fonts](#fonts) are installed:
+
 ```bash
-$ ./scripts/download-fonts.sh
+./scripts/download-fonts.sh
 ```
+
 4. Run the `start.sh` script to start the widget (forks to background):
+
 ```bash
-$ path/to/now-clocking/start.sh
+path/to/now-clocking/start.sh
 ```
 
 ## FAQ
