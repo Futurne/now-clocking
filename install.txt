@@ -1,1 +1,0 @@
-Put the file `now-clocking.desktop` to the directory `/home/pierrotlc/.config/autostart`.
